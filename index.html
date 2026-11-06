@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CrownOS™ — Quiet Luxury Operating System</title>
-  <!-- Google Fonts: Plus Jakarta Sans (Tipografía geométrica de lujo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -72,21 +71,25 @@
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .brand-logo {
-      width: 20px;
-      height: 20px;
-      stroke: var(--accent-bronze);
+    /* Logo Oficial C R O W N Vectorial */
+    .crown-wordmark {
+      height: 18px;
+      fill: var(--accent-bronze);
+      filter: drop-shadow(0 0 8px var(--accent-glow));
     }
 
-    .brand-title {
+    .os-badge {
+      font-size: 0.75rem;
       font-weight: 800;
-      font-size: 1.05rem;
-      letter-spacing: 2px;
       color: var(--text-main);
-      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid var(--accent-bronze);
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: rgba(200, 138, 88, 0.1);
     }
 
     .status-group {
@@ -104,7 +107,7 @@
       stroke: var(--text-muted);
     }
 
-    /* Omnipresent Search Bar (Búsqueda Local de CrownOS) */
+    /* Omnipresent Search Bar (CrownOS Local Search) */
     .search-container {
       position: absolute;
       top: 96px;
@@ -261,7 +264,7 @@
       background: rgba(200, 138, 88, 0.08);
     }
 
-    /* LUNAR™ Pod Widget (Tamaño Compacto y Elegante) */
+    /* LUNAR™ Pod Widget */
     .lunar-pod-container {
       position: absolute;
       bottom: 24px;
@@ -322,13 +325,22 @@
 
   <div class="bg-glow"></div>
 
-  <!-- Top Bar -->
+  <!-- Top Bar con Logotipo Oficial C R O W N en SVG Vectorial -->
   <header class="top-bar">
     <div class="brand-container">
-      <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5z"/>
+      <svg class="crown-wordmark" viewBox="0 0 500 70">
+        <!-- C -->
+        <path d="M 70,10 L 25,10 C 10,10 5,15 5,35 C 5,55 10,60 25,60 L 70,60 L 70,48 L 25,48 C 18,48 17,45 17,35 C 17,25 18,22 25,22 L 70,22 Z"/>
+        <!-- R -->
+        <path d="M 100,10 L 155,10 C 170,10 175,18 175,32 C 175,44 168,48 152,48 L 132,36 L 152,36 C 158,36 160,32 160,26 C 160,20 156,22 145,22 L 114,22 L 114,60 L 100,60 Z M 140,42 L 175,60 L 158,60 L 126,42 Z"/>
+        <!-- O -->
+        <path d="M 220,10 C 195,10 190,18 190,35 C 190,52 195,60 220,60 C 245,60 250,52 250,35 C 250,18 245,10 220,10 Z M 220,22 C 233,22 235,26 235,35 C 235,44 233,48 220,48 C 207,48 205,44 205,35 C 205,26 207,22 220,22 Z"/>
+        <!-- W -->
+        <path d="M 265,10 L 280,60 L 294,60 L 305,28 L 316,60 L 330,60 L 345,10 L 330,10 L 322,44 L 310,10 L 300,10 L 288,44 L 280,10 Z"/>
+        <!-- N -->
+        <path d="M 360,10 L 360,60 L 374,60 L 415,22 L 415,60 L 429,60 L 429,10 L 415,10 L 374,48 L 374,10 Z"/>
       </svg>
-      <span class="brand-title">CrownOS™</span>
+      <span class="os-badge">OS™</span>
     </div>
     <div class="status-group">
       <span id="clock">00:00</span>
@@ -338,7 +350,7 @@
     </div>
   </header>
 
-  <!-- Omnipresent Search Bar (CrownOS Local Search) -->
+  <!-- Omnipresent Search Bar -->
   <div class="search-container">
     <div class="search-wrapper">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
@@ -406,7 +418,6 @@
   </div>
 
   <script>
-    // Reloj dinámico
     function updateClock() {
       const now = new Date();
       document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -414,7 +425,6 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Toggle Modal de Ajustes
     const openSettings = document.getElementById('openSettings');
     const closeSettings = document.getElementById('closeSettings');
     const settingsModal = document.getElementById('settingsModal');
